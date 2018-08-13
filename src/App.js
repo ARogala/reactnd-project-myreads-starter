@@ -22,7 +22,7 @@ class BooksApp extends React.Component {
   render() {
     //componentDidMount calls render twice use slice for immutability
     const books = this.state.books.slice();
-    console.log(books);
+    //console.log(books);
     return (
       <div className="app">
         {this.state.showSearchPage ? (
