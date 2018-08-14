@@ -1,9 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as BooksAPI from './BooksAPI';
+import Book from './Book';
 
 class SearchPage extends React.Component {
+	state = {
+		searchedBooks: [],
+		searchError: false
+	}
+
+	performSearch = (event) => {
+		const query = event.target.value.trim();
+		//search results are NOT shown when query is empty
+		if(query==='') {
+			this.setState({searchedBooks: [], searchError: false});
+			return;
+		}
+		//search is a Promise from the BooksAPI
+		const search = BooksAPI.search(query);
+		search.then(books => {
+			//if lenght is zero an error occured
+			books.length > 0 ? this.setState({searchedBooks: books, searchError: false}) : this.setState({searchedBooks: [], searchError: true});
+		});
+	}
 
 	render() {
+		const searchedBooks = this.state.searchedBooks;
+		const searchError = this.state.searchError;
+		const shelfChange = this.props.shelfChange;
+
+		const returnedBooks = searchedBooks.map(book => {
+			return (
+				<Book
+					shelfContent = {book}
+					key = {book.id}
+					shelfChange = {shelfChange}
+				/>
+			);
+
+		});
 
 		return (
 			<div className="search-books">
@@ -18,11 +53,23 @@ class SearchPage extends React.Component {
 						However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
 						you don't find a specific author or title. Every search is limited by search terms.
 						*/}
-						<input type="text" placeholder="Search by title or author"/>
+						<input
+							type="text"
+							placeholder="Search by title or author"
+							onChange={this.performSearch}
+						/>
 					</div>
 				</div>
 				<div className="search-books-results">
-					<ol className="books-grid"></ol>
+					{searchError === false ? (
+						<ol className="books-grid">
+							{returnedBooks}
+						</ol>
+					) : (
+						<div>
+							<p>Search returned 0 books. Try again</p>
+						</div>
+					)}
 				</div>
 			</div>
 		);

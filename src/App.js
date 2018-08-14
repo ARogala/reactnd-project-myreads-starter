@@ -1,9 +1,9 @@
-import React from 'react'
-import {Route, Link } from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
-import './App.css'
-import BookCase from './BookCase'
-import SearchPage from './SearchPage'
+import React from 'react';
+import {Route, Link } from 'react-router-dom';
+import * as BooksAPI from './BooksAPI';
+import './App.css';
+import BookCase from './BookCase';
+import SearchPage from './SearchPage';
 
 class BooksApp extends React.Component {
   state = {
@@ -39,7 +39,7 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route path="/search" render={() => (
           <SearchPage
-
+            shelfChange={this.shelfChange}
           />
         )} />
 
@@ -59,7 +59,7 @@ class BooksApp extends React.Component {
         )} />
 
       </div>
-    )
+    );
   }
 }
 
