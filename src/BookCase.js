@@ -6,7 +6,6 @@ import BookShelf from './BookShelf';
 class BookCase extends React.Component {
 
 	render() {
-		//console.log(this.props.books);
 		const books = this.props.books;
 		const shelfChange = this.props.shelfChange;
 
@@ -17,7 +16,6 @@ class BookCase extends React.Component {
 
 		//categorize books according to shelvesKeys
 		const orderedBooks = shelvesKeys.map(shelfKey => books.filter(book => book.shelf === shelfKey));
-		//console.log(orderedBooks);
 
 
 		//for each shelvesValues build the bookshelf within the bookcase
@@ -34,7 +32,6 @@ class BookCase extends React.Component {
 				</div>
 			);
 		});
-		//console.log(bookShelf);
 		return (
 			<div className="list-books-content">
 				<div>

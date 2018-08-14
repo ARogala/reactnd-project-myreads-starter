@@ -6,7 +6,6 @@ class Book extends React.Component {
 	render() {
 		const book = this.props.shelfContent;
 		const shelfChange = this.props.shelfChange;
-		//console.log(book);
 
 		const title = book.title ? book.title : 'No title available';
 		//display multiple authors on different line

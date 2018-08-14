@@ -5,7 +5,6 @@ class BookShelfChanger extends React.Component {
 	render() {
 		const book = this.props.book;
 		const shelfChange = this.props.shelfChange;
-		console.log(book);
 
 		return (
 			<div className="book-shelf-changer">
