@@ -19,6 +19,23 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => this.setState({books: books}));
   }
 
+  shelfChange = (newBook, newShelf) => {
+    BooksAPI.update(newBook, newShelf).then(response => {
+      //set the shelf of the new or updated book
+      newBook.shelf = newShelf;
+
+      // get list of books without updated or new book
+      // this will be an array of all the books that are NOT new or updated
+      var updatedBooks = this.state.books.filter( book => book.id !== newBook.id );
+
+      // add the new or updated book to array and set new state
+      updatedBooks.push(newBook);
+      this.setState({ books: updatedBooks });
+
+    });
+
+  }
+
   render() {
     //componentDidMount calls render twice use slice for immutability
     const books = this.state.books.slice();
@@ -53,6 +70,7 @@ class BooksApp extends React.Component {
             </div>
               <BookCase
                 books={books}
+                shelfChange={this.shelfChange}
               />
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>

@@ -5,6 +5,7 @@ import BookShelfChanger from './BookShelfChanger';
 class Book extends React.Component {
 	render() {
 		const book = this.props.shelfContent;
+		const shelfChange = this.props.shelfChange;
 		//console.log(book);
 
 		const title = book.title ? book.title : 'No title available';
@@ -22,7 +23,8 @@ class Book extends React.Component {
 					<div className="book-top">
 						<div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
 						<BookShelfChanger
-
+							book = {book}
+							shelfChange = {shelfChange}
 						/>
 					</div>
 					<div className="book-title">{title}</div>

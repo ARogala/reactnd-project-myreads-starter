@@ -8,6 +8,7 @@ class BookCase extends React.Component {
 	render() {
 		//console.log(this.props.books);
 		const books = this.props.books;
+		const shelfChange = this.props.shelfChange;
 
 		const shelves = {currentlyReading: 'Currently Reading',
 						wantToRead: 'Want To Read', read: 'Read'};
@@ -27,6 +28,7 @@ class BookCase extends React.Component {
 					<div className="bookshelf-books">
 						<BookShelf
 							books={orderedBooks[index]}
+							shelfChange={shelfChange}
 						/>
 					</div>
 				</div>
