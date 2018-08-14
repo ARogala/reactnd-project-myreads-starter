@@ -40,6 +40,7 @@ class BooksApp extends React.Component {
         <Route path="/search" render={() => (
           <SearchPage
             shelfChange={this.shelfChange}
+            books={books}
           />
         )} />
 
@@ -63,4 +64,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;

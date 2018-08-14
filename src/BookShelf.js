@@ -10,6 +10,7 @@ class BookShelf extends React.Component {
 			return (
 				<Book
 					shelfContent = {book}
+					books = {books}
 					key = {book.id}
 					shelfChange = {shelfChange}
 				/>

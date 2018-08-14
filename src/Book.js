@@ -6,6 +6,7 @@ import noBookCover from './icons/no-cover-image.png';
 class Book extends React.Component {
 	render() {
 		const book = this.props.shelfContent;
+		const books = this.props.books;
 		const shelfChange = this.props.shelfChange;
 
 		//fallbacks for missing book cover image title and authors
@@ -33,6 +34,7 @@ class Book extends React.Component {
 						<div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${bookCover})` }}></div>
 						<BookShelfChanger
 							book = {book}
+							books = {books}
 							shelfChange = {shelfChange}
 						/>
 					</div>

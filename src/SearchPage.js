@@ -28,11 +28,13 @@ class SearchPage extends React.Component {
 		const searchedBooks = this.state.searchedBooks;
 		const searchError = this.state.searchError;
 		const shelfChange = this.props.shelfChange;
+		const books = this.props.books;
 
 		const returnedBooks = searchedBooks.map(book => {
 			return (
 				<Book
 					shelfContent = {book}
+					books = {books}
 					key = {book.id}
 					shelfChange = {shelfChange}
 				/>
