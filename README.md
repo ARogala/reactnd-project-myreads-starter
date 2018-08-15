@@ -28,6 +28,11 @@ Facebook's Create-React-App will launch the app in your default browser at local
 
 ## Sources
 Project Example: https://github.com/sarah-maris/reactnd-project-myreads.git
+
 React Docs: https://reactjs.org/
+
 Create React App: https://github.com/facebook/create-react-app
+
 Udacity Started Code: https://github.com/udacity/reactnd-project-myreads-starter
+
+I used https://github.com/sarah-maris/reactnd-project-myreads as a basis for this project. I added this to my sources and cited as necessary. I feel my code is unique enough to be my own. However, some implementation details are similar and one method in App.js is the same (I cited this in the comments). Please let me know if you feel anything else needs to be changed or cited. I did my best to keep this project original but that is a challenge as there is only so many ways to do things.
