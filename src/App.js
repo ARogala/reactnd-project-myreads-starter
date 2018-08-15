@@ -14,6 +14,10 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => this.setState({books: books}));
   }
 
+  //This method was taken from
+  //https://github.com/sarah-maris/reactnd-project-myreads
+  //Not sure how else to implement this particular method
+  //I did comment and figure out how it works
   shelfChange = (newBook, newShelf) => {
     BooksAPI.update(newBook, newShelf).then(response => {
       //set the shelf of the new or updated book
