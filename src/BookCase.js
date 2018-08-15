@@ -1,6 +1,6 @@
 import React from 'react';
 import BookShelf from './BookShelf';
-
+import PropTypes from 'prop-types';
 
 
 class BookCase extends React.Component {
@@ -40,6 +40,11 @@ class BookCase extends React.Component {
 			</div>
 		);
 	}
+}
+
+BookCase.propTypes = {
+	shelfChange: PropTypes.func.isRequired,
+	books: PropTypes.array.isRequired
 }
 
 export default BookCase;

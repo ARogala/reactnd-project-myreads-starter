@@ -1,7 +1,7 @@
 import React from 'react';
 import BookShelfChanger from './BookShelfChanger';
 import noBookCover from './icons/no-cover-image.png';
-
+import PropTypes from 'prop-types';
 
 class Book extends React.Component {
 	render() {
@@ -46,5 +46,10 @@ class Book extends React.Component {
 	}
 }
 
+Book.propTypes = {
+	shelfChange: PropTypes.func.isRequired,
+	books: PropTypes.array.isRequired,
+	book: PropTypes.object
+}
 
 export default Book;

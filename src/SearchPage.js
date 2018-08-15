@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import Book from './Book';
+import PropTypes from 'prop-types';
 
 class SearchPage extends React.Component {
 	state = {
@@ -76,6 +77,13 @@ class SearchPage extends React.Component {
 			</div>
 		);
 	}
+}
+
+SearchPage.propTypes = {
+	searchedBooks: PropTypes.array.isRequired,
+	searchError: PropTypes.bool.isRequired,
+	shelfChange: PropTypes.func.isRequired,
+	books: PropTypes.array.isRequired
 }
 
 export default SearchPage;
